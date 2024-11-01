@@ -22,13 +22,13 @@ namespace PetShop.Data
         }
         public static PetShopEntities GetContext()
         {
-            if(_context == null)
+            if (_context == null)
             {
                 _context = new PetShopEntities();
             }
             return _context;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

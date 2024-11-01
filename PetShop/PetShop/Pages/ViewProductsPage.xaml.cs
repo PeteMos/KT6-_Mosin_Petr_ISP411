@@ -30,7 +30,6 @@ namespace PetShop.Pages
         public void Init()
         {
             ProductListView.ItemsSource = Data.PetShopEntities.GetContext().Product.ToList();
-
             var manufactList = Data.PetShopEntities.GetContext().Manufacturer.ToList();
             manufactList.Insert(0, new Data.Manufacturer { Manufacturer1 = "Все производители" });
             ManufacturerComboBox.ItemsSource = manufactList;

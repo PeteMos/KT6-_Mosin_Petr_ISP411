@@ -5,10 +5,74 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PetShop.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddEditPage">
+      d:DesignHeight="650" d:DesignWidth="1000"
+      Title="ИС Товары для животных - добавление/редактирование товара">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="90"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="IdLabel" Content="Id:" Grid.Row="0" Grid.Column="0"></Label>
+
+            <Label Content="Наименование:" Grid.Row="1" Grid.Column="0"></Label>
+            <Label Content="Категория:" Grid.Row="2" Grid.Column="0"></Label>
+            <Label Content="Количество на складе:" Grid.Row="3" Grid.Column="0"></Label>
+            <Label Content="Единица измерения:" Grid.Row="4" Grid.Column="0"></Label>
+
+            <Label Content="Изображение:" Grid.Row="0" Grid.Column="2"></Label>
+            <Label Content="Стоимость за ед.:" Grid.Row="4" Grid.Column="2"></Label>
+            <Label Content="Поставщик:" Grid.Row="5" Grid.Column="2"></Label>
+            <Label Content="Подробное описание:" Grid.Row="6" Grid.Column="2"></Label>
+
+            <TextBox x:Name="IdTextBox" Grid.Row="0" Grid.Column="1"
+                     IsReadOnly="True" IsEnabled="False"></TextBox>
+            <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1"></TextBox>
+            <TextBox x:Name="CountTextBox" Grid.Row="3" Grid.Column="1"></TextBox>
+
+            <ComboBox x:Name="CategoryComboBox" Grid.Row="2" Grid.Column="1"
+                      DisplayMemberPath="Category1" Margin="50,0"></ComboBox>
+            <TextBox x:Name="UnitTextBox" Grid.Row="4" Grid.Column="1"></TextBox>
+            <Image MouseDown="ProductImage_MouseDown" x:Name="ProductImage" Margin="10,0,10,10"
+                   Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
+                <Image.Source>
+                    <Binding Path ="ProductPhoto">
+                        <Binding.TargetNullValue>
+                            <BitmapImage UriSource="/Resources/picture.png"/>
+                        </Binding.TargetNullValue>
+                    </Binding>
+                </Image.Source>
+            </Image>
+            <TextBox x:Name="CostTextBox" Grid.Row="4" Grid.Column="3"></TextBox>
+            <TextBox x:Name="SupplierTextBox" Grid.Row="5" Grid.Column="3"></TextBox>
+            <TextBox x:Name="DescriptionTextBox" Grid.Row="6" Grid.Column="3" 
+                     Grid.RowSpan="4" Height="100" VerticalScrollBarVisibility="Visible"
+                     TextWrapping="Wrap"  AcceptsReturn="True"></TextBox>
+        </Grid>
+        <Button x:Name="BackButton" Content="Назад"
+                Click="BackButton_Click" Grid.Row="1"
+                HorizontalAlignment="Left" Margin="10"></Button>
+        <Button x:Name="SaveButton" Content="Сохранить"
+                Click="SaveButton_Click" Grid.Row="1"
+                HorizontalAlignment="Right" Margin="10"></Button>
     </Grid>
 </Page>
